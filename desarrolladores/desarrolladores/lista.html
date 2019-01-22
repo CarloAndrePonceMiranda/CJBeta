@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block head_title %}{{title}}{% endblock %}
+{%load static%}
+{% block content %}
+<!-- START PAGE CONTENT -->
+<div class="content">
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <section class="section">
+          <div class="container">
+            <div class="row separatedv">
+              <div class="col-md-12">
+                <h1 class="text-center">Plantillas</h1>
+                <table class="table-hover table-responsive">
+                  <thead class="bg-dark">
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Edad</th>
+                      <th>Estudios</th>
+                      <th>C.V</th>
+                      <th>Foto</th>
+                      <th>activo</th>
+                      <th>timestamp</th>
+                      <th>Correo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for obj in object_list %}
+                    <tr>
+                      <td>{{obj.nombre}}</td>
+                      <td>{{obj.cumpleanos}</td>
+                      <td>{{obj.estudios}}</td>
+                      <td><a>{{obj.cv}}</a></td>
+                      <td>{% if obj.imagen %}<img class="img-fluid" src="{{ obj.imagen.url }}" alt="img">{% else %}Sin imagen{% endif %}
+                        <a href="{{obj.get_absolute_url}}">
+                  <button type="button" name="button" class="btn btn-danger">Ver</button>
+                </a></td>
+                      <td>{{obj.activo}}</td>
+                      <td>{{obj.timestamp}}</td>
+                      <td>{{obj.correo}}</td>
+
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- END PLACE PAGE CONTENT HERE -->
+      </div>
+      <!-- END CONTAINER FLUID -->
+    </div>
+    <!-- END PAGE CONTENT -->
+{% endblock %}
+{% include "footer.html" %}

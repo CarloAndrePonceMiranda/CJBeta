@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block head_title %}{{title}}{% endblock %}
+{%load static%}
+{%load bootstrap4%}
+{% block content %}
+{% url 'home' as home %}
+{% url 'plantillas:lista' as lista %}
+{% url 'plantillas:nueva' as nueva %}
+<!-- START PAGE CONTENT -->
+<div class="content">
+  <div class="jumbotron" data-pages="parallax">
+    <div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
+      <div class="inner">
+        <!-- START BREADCRUMB -->
+         <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{home}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{lista}}">Plantillas</a></li>
+          <li class="breadcrumb-item"><a href="{{nueva}}">Nueva Plantilla</a></li>
+        </ol>
+        <!-- END BREADCRUMB -->
+      </div>
+    </div>
+  </div>
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <section class="section">
+            <div class="container">
+                <div class="row separatedv">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                      <h1 class="text-center">Agregar Nueva Plantilla</h1>
+                      <form  enctype="multipart/form-data"method="POST">
+                        <div class="row">
+                          {% csrf_token %}
+                          <!-- {% bootstrap_form form %} -->
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="nombre">Nombre</label>
+                              <input type="text" name="nombre" name="nombre" title="" required id="nombre" maxlength="120" placeholder="Nombre..." class="form-control" />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="categoria">Categoría</label>
+                              <select name="categoria" name="categoria" title="" id="categoria" maxlength="120" class="form-control">
+                                <option value="---------">---------</option>
+                                <option value="Pagina Web">Pagina Web</option>
+                                <option value="Sistemas Web">Sistemas Web</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="descripcion">Descripción</label>
+                              <input type="text" name="descripcion" name="descripcion" title="" required class="form-control" placeholder="" id="descripcion" />
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="id_imagen">Imagen</label>
+                              <div class="row bootstrap4-multi-input">
+                                <div class="col-12">
+                                  <input type="file" name="imagen" id="id_imagen" class="" title="" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-12 tex-right">
+                            <button type="submit" name="submit" class="btn btn-info">Completo</button>
+                          </div>
+
+                        </div>
+                      </form>
+                    </div>
+                    <div class="col-md-3">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>
+<!-- END PAGE CONTENT -->
+{% endblock %} {% include "footer.html" %}

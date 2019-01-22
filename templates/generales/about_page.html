@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block head_title %}{{title}}{% endblock %}
+{%load static%}
+{% block content %}
+{% url 'home' as home %}
+<!-- START PAGE CONTENT -->
+<div class="content">
+  <div class="jumbotron" data-pages="parallax">
+    <div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
+      <div class="inner">
+        <!-- START BREADCRUMB -->
+         <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{home}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{home}}">Home</a></li>
+        </ol>
+        <!-- END BREADCRUMB -->
+      </div>
+    </div>
+  </div>
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <section class="section">
+            <div class="container">
+                <div class="row separatedv">
+                    <div class="col-md-12">
+                      <h1 class="text-center">Nosotros</h1>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h1 class="text-center">Misión</h1>
+                  </div>
+                  <div class="col-md-6">
+                    <h1 class="text-center">Visión</h1>
+                  </div>
+                </div>
+            </div>
+        </section>
+        <!-- END PLACE PAGE CONTENT HERE -->
+    </div>
+    <!-- END CONTAINER FLUID -->
+</div>
+<!-- END PAGE CONTENT -->
+{% endblock %} {% include "footer.html" %}

@@ -1,0 +1,125 @@
+{% load static %}
+{% url 'home' as home_url %}
+{% url 'contacto' as contacto_url %}
+{% url 'about' as about_url %}
+{% url 'login' as login %}
+{% url 'logout' as logout %}
+{% url 'register' as register %}
+{% url 'users' as users %}
+{% url 'plantillas:lista' as lista %}
+{% url 'plantillas:nueva' as nueva %}
+{% url 'desarrolladores:lista' as listad %}
+{% url 'desarrolladores:nuevo' as nuevod %}
+{% url 'lista_pweb' as lista_pweb %}
+{% url 'lista_sweb' as lista_sweb %}
+
+<!-- BEGIN SIDEBAR -->
+<!-- BEGIN SIDEBPANEL-->
+<nav class="page-sidebar" data-pages="sidebar">
+    <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
+    <div class="sidebar-overlay-slide from-top" id="appMenu">
+
+    </div>
+    <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
+    <!-- BEGIN SIDEBAR MENU HEADER-->
+    <div class="sidebar-header">
+        <center><img src="{% static 'img/cjbeta-logo.png' %}" alt="logo" class="brand" data-src="{% static 'img/cjbeta-logo.png' %}" data-src-retina="{% static 'img/cjbeta-logo.png' %}" height="50"></center> <br>
+        <div class="sidebar-header-controls">
+
+        </div>
+    </div>
+    <!-- END SIDEBAR MENU HEADER-->
+    <!-- START SIDEBAR MENU -->
+    <div class="sidebar-menu" style="padding-top:100px;">
+        <!-- BEGIN SIDEBAR MENU ITEMS-->
+        <ul class="menu-items">
+          <li class="">
+              <a href="{{home_url}}">
+                  <span class="title">Inicio</span>
+              </a>
+              <span class="icon-thumbnail"><i class="fas fa-home"></i></span>
+          </li>
+            <li class="">
+                <a href="javascript:;">
+                    <span class="title">Templates</span>
+                    <span class=" arrow"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fas fa-laptop-code"></i></span>
+                <ul class="sub-menu">
+                  {% if user.is_authenticated %}
+                  <li class="">
+                      <a class="linksidebar" href="{{lista}}">Lista</a>
+                  </li>
+                  <li class="">
+                      <a class="linksidebar" href="{{nueva}}">Agregar Template</a>
+                  </li>
+                  <li><hr class="acheerre"></li>
+                  {% else %}
+                  {% endif %}
+                  <li class="">
+                      <a class="linksidebar" href="{{lista_pweb}}">Páginas Web</a>
+                  </li>
+                  <li class="">
+                      <a class="linksidebar" href="{{lista_sweb}}">Sistemas Web</a>
+                  </li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <span class="title">Desarroladores</span>
+                    <span class=" arrow"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fas fa-users"></i></span>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a class="linksidebar" href="{{listad}}">Lista</a>
+                    </li>
+                    {% if user.is_authenticated and user.is_superuser and user.is_staff%}
+                    <li class="">
+                        <a class="linksidebar" href="{{nuevod}}">Agregar Developer</a>
+                    </li>
+                    {% else %}
+                    {% endif %}
+                </ul>
+            </li>
+            <li class="">
+                <a href="{{contacto_url}}">
+                    <span class="title">Contacto</span>
+                </a>
+                <span class="icon-thumbnail"><i class="fas fa-mail-bulk"></i></span>
+            </li>
+            <li class="">
+                <a href="{{about_url}}">
+                    <span class="title">Acerca de</span>
+                </a>
+                <span class="icon-thumbnail"><i class="fas fa-scroll"></i></span>
+            </li>
+            <li class="">
+                <a href="javascript:;">
+                    <span class="title">Usuarios</span>
+                    <span class=" arrow"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fas fa-user"></i></span>
+                <ul class="sub-menu">
+                    {% if user.is_authenticated %}
+                    <li class="">
+                        <a class="linksidebar" href="{{ logout }}">Cerrar Sesión</a>
+                    </li>
+                    {% if user.is_authenticated and user.is_staff and user.is_superuser %}
+                    <li class="">
+                        <a class="linksidebar" href="{{users}}">Lista de Usuarios</a>
+                    </li>
+                    {% else %} {% endif %} {% else %}
+                    <li class="">
+                        <a class="linksidebar" href="{{login}}">Inicias Sesión</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <!-- END SIDEBAR MENU -->
+</nav>
+<!-- END SIDEBAR -->
+<!-- END SIDEBAR -->

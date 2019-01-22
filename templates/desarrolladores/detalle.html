@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+{% block head_title %}{{title}}{% endblock %}
+{%load static%}
+{% url 'productos:lista' as lista %}
+{% block content %}
+<!-- START PAGE CONTENT -->
+<div class="content">
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <section class="section">
+          <div class="container">
+            <div class="row separatedv">
+              <div class="col-md-12">
+                {{ object.nombre }}<br>
+                {{ object.cumpleanos }}<br>
+                {% if object.imagen %}
+                    <img src="{{ object.imagen.url }}" width="300">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- END PLACE PAGE CONTENT HERE -->
+      </div>
+      <!-- END CONTAINER FLUID -->
+    </div>
+    <!-- END PAGE CONTENT -->
+{% endblock %}
+{% include "footer.html" %}

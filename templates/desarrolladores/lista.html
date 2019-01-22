@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block head_title %}{{title}}{% endblock %}
+{%load static%}
+{% block content %}
+{% url 'home' as home %}
+<!-- START PAGE CONTENT -->
+<div class="content text-center">
+  <div class="jumbotron" data-pages="parallax">
+    <div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
+      <div class="inner">
+        <!-- START BREADCRUMB -->
+         <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{{home}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{listad}}">Desarrolladores</a></li>
+        </ol>
+        <!-- END BREADCRUMB -->
+      </div>
+    </div>
+  </div>
+  <h2>Desarrolladores</h2>
+    <!-- START CONTAINER FLUID -->
+    <div class="container-fluid container-fixed-lg">
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <section class="section">
+          <div class="container">
+            <div class="row separatedv">
+              {% for obj in object_list %}
+              <div class="col-md-6">
+                <!-- <h1 class="text-center">{{obj.nombre}}</h1> -->
+                <aside class="profile-card">
+              <header>
+                <!-- here’s the avatar -->
+                <a>
+                  {% if obj.imagen %}
+                  <img class="img-fluid" src="{{MEDIA_ROOT}}{{ obj.imagen.url }}" alt="img">
+                  {% else %}
+                  Sin imagen
+                  {% endif %}
+                </a>
+                <!-- the username -->
+                <h1>{{obj.nombre}}</h1>
+                <h1>{{obj.estudios}}</h1>
+                <!-- and role or location -->
+              </header>
+              <!-- bit of a bio; who are you? -->
+              <div class="profile-bio conp text-center">
+                <p class="conp">{{obj.cumpleanos}}</p>
+                <p class="conp">{{obj.correo}}</p>
+              </div>
+              <!-- some social links to show off -->
+              <div class="container">
+                <div class="row">
+                  <ul class="profile-social-links">
+                    <!-- twitter - el clásico  -->
+                    <li>
+                      <a>
+                        <img src="https://images.vexels.com/media/users/3/137198/isolated/preview/07f0d7b69ef071571e4ada2f4d6a053a-icono-de-instagram-colorido-by-vexels.png">
+                      </a>
+                    </li>
+                    <!-- envato – use this one to link to your marketplace profile -->
+                    <li>
+                      <a>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTikAUIOiej0vQMABZgiE0pfbXDVwNOs37gzSY_mCMBhaQUaJYJ">
+                      </a>
+                    </li>
+                    <!-- codepen - your codepen profile-->
+                    <li>
+                      <a>
+                        <img src="https://icon-icons.com/icons2/122/PNG/512/twitter_socialnetwork_20007.png">
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        {% if obj.cv %}
+                        <a href="{{ obj.cv.url }}" target="_blank">
+                          <img src="https://image.flaticon.com/icons/png/512/504/504676.png">
+                        </a>
+                        {% else %}
+                        {% endif %}
+                      </a>
+                    </li>
+                    <!-- add or remove social profiles as you see fit -->
+                  </ul>
+
+                </div>
+              </div>
+            </aside>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+        <!-- END PLACE PAGE CONTENT HERE -->
+      </div>
+      <!-- END CONTAINER FLUID -->
+    </div>
+    <!-- END PAGE CONTENT -->
+{% endblock %}
+{% include "footer.html" %}

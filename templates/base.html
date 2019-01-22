@@ -1,0 +1,13 @@
+{% include "head.html" %}
+{% load static %}
+<title>C-J Beta Web{% block head_title %}{% endblock %}</title>
+<link rel="shortcut icon" href="{% static 'img/cjbeta-logo.png' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+{% include "sidebar.html" %}
+
+{% include "searchbar.html" %}
+
+{% block content %}
+{% endblock %}
+
+{% include "footer.html" %}

@@ -1,0 +1,79 @@
+{% load static %} {% url 'home' as home_url %} {% url 'contacto' as contacto_url %} {% url 'about' as about_url %} {% url 'login' as login %} {% url 'logout' as logout %} {% url 'register' as register %} {% url 'users' as users %}
+
+<!-- BEGIN SIDEBAR -->
+<!-- BEGIN SIDEBPANEL-->
+<nav class="page-sidebar" data-pages="sidebar">
+    <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
+    <div class="sidebar-overlay-slide from-top" id="appMenu">
+
+    </div>
+    <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
+    <!-- BEGIN SIDEBAR MENU HEADER-->
+    <div class="sidebar-header">
+        <center><img src="{% static 'img/logoblancotodo.png' %}" alt="logo" class="brand" data-src="{% static 'img/logoblancotodo.png' %}" data-src-retina="{% static 'img/logoblancotodo.png' %}" height="50"></center> <br>
+        <div class="sidebar-header-controls">
+
+        </div>
+    </div>
+    <!-- END SIDEBAR MENU HEADER-->
+    <!-- START SIDEBAR MENU -->
+    <div class="sidebar-menu" style="padding-top:100px;">
+        <!-- BEGIN SIDEBAR MENU ITEMS-->
+        <ul class="menu-items">
+            <li class="">
+                <a href="javascript:;">
+                    <span class="title">Usuarios</span>
+                    <span class=" arrow"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fas fa-user"></i></span>
+                <ul class="sub-menu">
+                    {% if user.is_authenticated %}
+                    <li class="">
+                        <a class="linksidebar" href="{{ logout }}">Cerrar Sesión</a>
+                    </li>
+                    {% if user.is_authenticated and user.is_staff and user.is_superuser %}
+                    <li class="">
+                        <a class="linksidebar" href="{{users}}">Lista de Usuarios</a>
+                    </li>
+                    {% else %} {% endif %} {% else %}
+                    <li class="">
+                        <a class="linksidebar" href="{{login}}">Inicias Sesión</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="">
+                <a href="javascript:;">
+                    <span class="title">This Engineers Develop</span>
+                    <span class=" arrow"></span>
+                </a>
+                <span class="icon-thumbnail"><i class="fas fa-users"></i></span>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a class="linksidebar" href="">Sitios Web</a>
+                    </li>
+                    <li class="">
+                        <a class="linksidebar" href="">Sistemas Web</a>
+                    </li>
+                    <li class="">
+                        <a class="linksidebar" href="">Apicaciones Móviles</a>
+                    </li>
+                    <li class="">
+                        <a class="linksidebar" href="">Sistemas Operativos</a>
+                    </li>
+                    {% if user.is_authenticated and user.is_staff%}
+                    <li class="">
+                        <a class="linksidebar" href="">Developers</a>
+                    </li>
+                    {% else %} {% endif %}
+                </ul>
+            </li>
+            {% else %} {% endif %}
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <!-- END SIDEBAR MENU -->
+</nav>
+<!-- END SIDEBAR -->
+<!-- END SIDEBAR -->

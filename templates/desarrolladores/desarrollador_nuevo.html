@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% block head_title %}{{title}}{% endblock %}
+{%load static%}
+{%load bootstrap4%}
+{% block content %}
+{% url 'home' as home %}
+{% url 'desarrolladores:listad' as listad %}
+{% url 'desarrolladores:nuevad' as nuevad %}
+      <!-- START PAGE CONTENT -->
+      <div class="content">
+        <div class="jumbotron" data-pages="parallax">
+          <div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
+            <div class="inner">
+              <!-- START BREADCRUMB -->
+               <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{home}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{listad}}">Desarrolladores</a></li>
+                <li class="breadcrumb-item"><a href="{{nuevad}}">Nuevo Desarrollador</a></li>
+              </ol>
+              <!-- END BREADCRUMB -->
+            </div>
+          </div>
+        </div>
+          <!-- START CONTAINER FLUID -->
+          <div class="container-fluid container-fixed-lg">
+              <!-- BEGIN PlACE PAGE CONTENT HERE -->
+              <section class="section">
+                  <div class="container">
+                      <div class="row separatedv">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-6">
+                            <form enctype="multipart/form-data" method="post">
+                              <div class="row">
+                                {% csrf_token %}
+                                <!-- {% bootstrap_form form %} -->
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" name="nombre" name="nombre" title="" required id="nombre" maxlength="120" placeholder="Nombre..." class="form-control" />
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group"><label for="cumpleanos_day">Cumpleaños</label>
+                                    <div class="row bootstrap4-multi-input">
+                                      <div class="col-4"><select name="cumpleanos_day" name="cumpleanos" title="" required class="form-control" placeholder="" id="id_cumpleanos_day">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                      </select>
+                                      </div>
+                                      <div class="col-4">
+                                        <select name="cumpleanos_month" name="cumpleanos" title="" required class="form-control" placeholder="" id="id_cumpleanos_month">
+                                          <option value="1">Enero</option>
+                                          <option value="2">Febrero</option>
+                                          <option value="3">Marzo</option>
+                                          <option value="4">Abril</option>
+                                          <option value="5">Mayo</option>
+                                          <option value="6">Junio</option>
+                                          <option value="7">Julio</option>
+                                          <option value="8">Agosto</option>
+                                          <option value="9">Septiembre</option>
+                                          <option value="10">Octubre</option>
+                                          <option value="11">Noviembre</option>
+                                          <option value="12">Diciembre</option>
+                                        </select>
+                                      </div>
+                                      <div class="col-4">
+                                        <select name="cumpleanos_year" name="cumpleanos" title="" required class="form-control" placeholder="" id="id_cumpleanos_year">
+                                          <option value="1993">1993</option>
+                                          <option value="1994">1994</option>
+                                          <option value="1995">1995</option>
+                                          <option value="1996">1996</option>
+                                          <option value="1997">1997</option>
+                                          <option value="1998">1998</option>
+                                          <option value="1999">1999</option>
+                                          <option value="2000">2000</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="correo">E-Mail</label>
+                                    <input type="text" name="correo" name="correo" title="" required id="correo" maxlength="254" placeholder="E-Mail..." class="form-control" />
+                                  </div>
+                                </div>
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="id_estudios">Estudios</label>
+                                    <input type="text" name="estudios" title="" id="id_estudios" maxlength="100" placeholder="Estudios" class="form-control" />
+                                  </div>
+                                </div>
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="id_imagen">Imagen</label>
+                                    <div class="row bootstrap4-multi-input">
+                                      <div class="col-12">
+                                        <input type="file" name="imagen" id="id_imagen" class="" title="" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label for="id_cv">Cv</label>
+                                    <div class="row bootstrap4-multi-input">
+                                      <div class="col-12">
+                                        <input type="file" name="cv" id="id_cv" class="" title="" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-12 tex-right">
+                                  <button type="submit" name="submit" class="btn btn-info">Hecho</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="col-md-3">
+
+                          </div>
+                      </div>
+                  </div>
+              </section>
+              <!-- END PLACE PAGE CONTENT HERE -->
+          </div>
+          <!-- END CONTAINER FLUID -->
+      </div>
+      <!-- END PAGE CONTENT -->
+{% endblock %} {% include "footer.html" %}
