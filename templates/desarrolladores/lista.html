@@ -47,6 +47,7 @@
                 <p class="conp">{{obj.cumpleanos}}</p>
                 <p class="conp">{{obj.correo}}</p>
               </div>
+
               <!-- some social links to show off -->
               <div class="container">
                 <div class="row">
@@ -78,6 +79,19 @@
                         {% else %}
                         {% endif %}
                       </a>
+                    </li>
+                    <li>
+                      {% if user.is_authenticated %}
+                      <a href="{% url 'desarrolladores:actualizar' obj.id %}">
+                        <i class="fas fa-edit"></i>
+                      </a>
+                    <li>
+                      <a class="rojo" href="{% url 'desarrolladores:eliminar' obj.id %}">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </li>
+                      {%else %}
+                      {%endif%}
                     </li>
                     <!-- add or remove social profiles as you see fit -->
                   </ul>

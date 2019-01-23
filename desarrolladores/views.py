@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from django.shortcuts import render, get_object_or_404
 from .models import Desarrollador
 from .forms import DesarrolladorForm
+from desarrolladores.models import Desarrollador
 from django.template import loader
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.edit import (
@@ -39,10 +40,10 @@ class ListaDesarrollador(ListView):
     #     return context
     def get_queryset(self, *args, **kwargs):
         request = self.request
-        return Desarrollador.objects.all().order_by('nombre')
+        return Desarrollador.objects.all()
 
 def lista_desarrollador(request):
-    queryset = Desarrollador.objects.order_by('nombre')
+    queryset = Desarrollador.objects.all('nombre')
     context = {
         'qs':queryset
     }
@@ -122,6 +123,7 @@ class DesarrolladoresUpdate(UpdateView):
     model = Desarrollador
     success_url = reverse_lazy('desarrolladores:lista')
     fields = ['nombre', 'marcado','cumpleanos','imagen', 'estudios','cv','correo']
+
 class DesarrolladoresDelete(DeleteView):
     model = Desarrollador
     success_url = reverse_lazy('desarrolladores:lista')

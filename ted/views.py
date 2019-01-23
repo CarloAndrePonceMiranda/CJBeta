@@ -71,7 +71,7 @@ def about_page(request):
         "title":"Acerca de",
         "content": "Welcome to about page"
     }
-    return render(request, "home_page.html", context)
+    return render(request, "generales/about_page.html", context)
 
 def login_page(request):
     form = LoginForm(request.POST or None)
@@ -125,7 +125,7 @@ def lista_pweb(request):
     return render(request, "generales/list-pweb.html",context)
 
 def lista_sweb(request):
-    queryset = Plantilla.objects.all().order_by('nombre').filter(categoria='Sistema Web')
+    queryset = Plantilla.objects.all().order_by('nombre').filter(categoria='Sistemas Web')
     context = {
         'queryset':queryset
     }

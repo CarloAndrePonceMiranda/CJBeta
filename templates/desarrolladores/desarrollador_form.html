@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block head_title %}{{title}}{% endblock %}
 {%load static%}
+{%load bootstrap4%}
 {% block content %}
 {% url 'home' as home %}
+{% url 'desarrolladores:lista' as lista %}
+{% url 'desarrolladores:actualizar' as actualizar %}
 <!-- START PAGE CONTENT -->
 <div class="content">
   <div class="jumbotron" data-pages="parallax">
@@ -11,6 +14,8 @@
         <!-- START BREADCRUMB -->
          <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{home}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{lista}}">Desarrolladores</a></li>
+          <li class="breadcrumb-item"><a href="{{actulizar}}">Editar Desarrollador</a></li>
         </ol>
         <!-- END BREADCRUMB -->
       </div>
@@ -22,16 +27,17 @@
         <section class="section">
             <div class="container">
                 <div class="row separatedv">
-                    <div class="col-md-12">
-                      <h1 class="text-center">Nosotros</h1>
-                    </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <h1 class="text-center">Misión</h1>
+                  <div class="col-md-3">
                   </div>
                   <div class="col-md-6">
-                    <h1 class="text-center">Visión</h1>
+                    <form enctype="multipart/form-data" method="post">
+                      {% csrf_token %}
+                      {% bootstrap_form form %}
+                      <button type="submit" name="submit" class="btn btn-success">Completo</button>
+                    </form>
+                  </div>
+                  <div class="col-md-3">
+
                   </div>
                 </div>
             </div>
