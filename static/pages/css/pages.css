@@ -305,7 +305,8 @@ body.menu-pin .overlay .overlay-brand {
 */
 .page-sidebar {
   width: 280px;
-  background-color: #2b303b;
+  background: url(https://i-h2.pinimg.com/564x/ed/72/27/ed7227fdb840557b2f213d512e0aff28.jpg);
+  /* background-color: #2b303b; */
   z-index: 1000;
   left: -210px;
   position: fixed;
@@ -322,7 +323,7 @@ body.menu-pin .overlay .overlay-brand {
 }
 .page-sidebar a,
 .page-sidebar button {
-  color: #788195;
+  color: #FFFFFF;
 }
 .page-sidebar a:hover,
 .page-sidebar button:hover,
@@ -334,7 +335,7 @@ body.menu-pin .overlay .overlay-brand {
 .page-sidebar button:visited,
 .page-sidebar a:focus,
 .page-sidebar button:focus {
-  color: #788195;
+  color: #FFFFFF;
 }
 .page-sidebar .scroll-element {
   visibility: hidden;
@@ -344,8 +345,9 @@ body.menu-pin .overlay .overlay-brand {
   display: block;
   height: 60px;
   line-height: 60px;
-  background-color: #272b35;
-  border-bottom: 1px solid #232730;
+  background: url(https://i-h2.pinimg.com/564x/ed/72/27/ed7227fdb840557b2f213d512e0aff28.jpg);
+  /* background-color: #272b35; */
+  border-bottom: 1px solid #FFFFFF;
   color: #fff;
   width: 100%;
   padding: 0 20px;
@@ -383,7 +385,7 @@ body.menu-pin .overlay .overlay-brand {
   /* Side-bar Top Slider */
   width: 100%;
   height: 100%;
-  background-color: #272b35;
+  background-color: #000000;
   display: block;
   z-index: 9;
   padding: 80px 20px 20px 20px;
@@ -426,12 +428,12 @@ body.menu-pin .overlay .overlay-brand {
 .page-sidebar .sidebar-menu .menu-items li:hover > .icon-thumbnail,
 .page-sidebar .sidebar-menu .menu-items li.open > .icon-thumbnail,
 .page-sidebar .sidebar-menu .menu-items li.active > .icon-thumbnail {
-  color: #fff;
+  color: #777777;
 }
 .page-sidebar .sidebar-menu .menu-items li:hover > a,
 .page-sidebar .sidebar-menu .menu-items li.open > a,
 .page-sidebar .sidebar-menu .menu-items li.active > a {
-  color: #fff;
+  color: #29292B;
 }
 .page-sidebar .sidebar-menu .menu-items li > a {
   white-space: nowrap;
@@ -554,7 +556,7 @@ body.menu-pin .overlay .overlay-brand {
   list-style: none;
   clear: both;
   margin: 0 0 10px 0;
-  background-color: #21252d;
+  background-color: #29292B;
   padding: 18px 0 10px 0;
 }
 .page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li {
@@ -577,11 +579,11 @@ body.menu-pin .overlay .overlay-brand {
   height: 30px;
   line-height: 30px;
   margin: 0;
-  background-color: #2b303b;
+  background-color: #000000;
   font-size: 14px;
 }
 .page-sidebar .sidebar-menu .muted {
-  color: #576775;
+  color: #29292B;
   opacity: .45;
 }
 .page-sidebar .icon-thumbnail [class^="bg-"],
@@ -596,7 +598,7 @@ body.menu-pin .overlay .overlay-brand {
 */
 .icon-thumbnail {
   display: inline-block;
-  background: #21252d;
+  background: #29292B;
   height: 40px;
   width: 40px;
   line-height: 40px;
@@ -606,7 +608,7 @@ body.menu-pin .overlay .overlay-brand {
   left: 0;
   float: right;
   margin-right: 14px;
-  color: #788195;
+  color: #FFFFFF;
   font-size: 16px;
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.05, 0.74, 0.27, 0.99);
   transition: transform 0.4s cubic-bezier(0.05, 0.74, 0.27, 0.99);

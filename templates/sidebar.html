@@ -47,13 +47,12 @@
                 <span class="icon-thumbnail"><i class="fas fa-laptop-code"></i></span>
                 <ul class="sub-menu">
                   {% if user.is_authenticated %}
-                  <li class="">
+                  <!-- <li class="">
                       <a class="linksidebar" href="{{lista}}">Lista</a>
-                  </li>
+                  </li> -->
                   <li class="">
                       <a class="linksidebar" href="{{nueva}}">Agregar Template</a>
                   </li>
-                  <li><hr class="acheerre"></li>
                   {% else %}
                   {% endif %}
                   <li class="">
@@ -71,15 +70,15 @@
                 </a>
                 <span class="icon-thumbnail"><i class="fas fa-users"></i></span>
                 <ul class="sub-menu">
-                    <li class="">
-                        <a class="linksidebar" href="{{listad}}">Lista</a>
-                    </li>
-                    {% if user.is_authenticated and user.is_superuser and user.is_staff%}
-                    <li class="">
-                        <a class="linksidebar" href="{{nuevod}}">Agregar Developer</a>
-                    </li>
-                    {% else %}
-                    {% endif %}
+                  {% if user.is_authenticated and user.is_superuser and user.is_staff%}
+                  <li class="">
+                      <a class="linksidebar" href="{{nuevod}}">Agregar Developer</a>
+                  </li>
+                  {% else %}
+                  {% endif %}
+                  <li class="">
+                      <a class="linksidebar" href="{{listad}}">Lista</a>
+                  </li>
                 </ul>
             </li>
             <li class="">

@@ -6,11 +6,14 @@ from django.forms import ModelForm, Textarea, DateInput, TextInput, NumberInput,
 class DesarrolladorForm(forms.ModelForm):
     class Meta:
         model = Desarrollador
-        fields = {'nombre','cumpleanos','imagen','estudios','cv','correo'}
+        fields = {'nombre','cumpleanos','imagen','estudios','cv','correo','facebook','instagram','twiter'}
         labels =    {'nombre':'Nombre',
                     'cumpleanos':'Cumpleaños',
                     'estudios':'Estudios',
-					'correo':'E-Mail'}
+					'correo':'E-Mail',
+                    'facebook':'Facebook',
+                    'instagram':'Instagram',
+                    'twiter':'Twitter'}
         widgets = {
             'nombre': TextInput(attrs={
                 'class':'form-control',
@@ -35,6 +38,24 @@ class DesarrolladorForm(forms.ModelForm):
                 'id': 'correo',
                 'name': 'correo',
                 'placeholder':'E-Mail...'
+                }),
+            'facebook': TextInput(attrs={
+                'class':'form-control',
+                'id': 'facebook',
+                'name': 'facebook',
+                'placeholder':'Facebook...'
+                }),
+            'instagram': TextInput(attrs={
+                'class':'form-control',
+                'id': 'instagram',
+                'name': 'instagram',
+                'placeholder':'Instagram...'
+                }),
+            'twiter': TextInput(attrs={
+                'class':'form-control',
+                'id': 'twiter',
+                'name': 'twiter',
+                'placeholder':'Twitter...'
                 }),
 
         }

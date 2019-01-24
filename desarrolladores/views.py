@@ -122,12 +122,12 @@ def detalle_desarrollador(request, pk=None, *args, **kwargs):
 class DesarrolladoresUpdate(UpdateView):
     model = Desarrollador
     success_url = reverse_lazy('desarrolladores:lista')
-    fields = ['nombre', 'marcado','cumpleanos','imagen', 'estudios','cv','correo']
+    fields = ['nombre', 'marcado','cumpleanos','imagen', 'estudios','cv','correo', 'facebook', 'instagram', 'twiter']
 
 class DesarrolladoresDelete(DeleteView):
     model = Desarrollador
     success_url = reverse_lazy('desarrolladores:lista')
-    fields = ['nombre', 'marcado','cumpleanos','imagen', 'estudios','cv','correo']
+    fields = ['nombre', 'marcado','cumpleanos','imagen', 'estudios','cv','correo', 'facebook', 'instagram', 'twiter']
 
 def DesarrolladorNuevo(request):
     if request.method == 'POST':

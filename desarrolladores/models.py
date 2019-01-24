@@ -76,6 +76,9 @@ class Desarrollador(models.Model):
     cv          = models.FileField(upload_to=upload_cv_path, null=True, blank=True)
     correo      = models.EmailField()
     destacado   = models.BooleanField(default=True)
+    facebook    = models.URLField(blank=True)
+    instagram   = models.URLField(blank=True)
+    twiter      = models.URLField(blank=True)
 
 
     objects = ManejadorDesarrollador()
