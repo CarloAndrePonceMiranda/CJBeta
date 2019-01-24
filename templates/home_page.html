@@ -22,13 +22,8 @@
         <section class="section">
             <div class="container">
                 <div class="row separatedv">
-                    <div class="col-md-12">
-                      <h1 class="text-center">Desarrolladores</h1>
-                    </div>
-                </div>
-                <div class="row">
                   <div class="col-md-12">
-                    <h1 class="text-center">Plantillas</h1>
+                    <h3 class="text-center">Plantillas</h3>
                   </div>
                   {% for obj in queryset %}
                   <div class='col-xs-12 col-sm-6 col-md-4 glow'>
@@ -40,17 +35,33 @@
                         </center>
                         <figcaption>
                           <div class='speaker-info'>
-                            <p class="text-light">{{obj.descripcion}}</p>
+                            <p class="text-light">{{obj.descripcion|truncatewords:5}}</p>
                             <sup class="text-light">{{obj.categoria}}</sup><br>
                             <a href="{{obj.get_absolute_url}}">
-                              <button type="button" name="button" class="btn btn-info btn-block">Ver</button>
+                              <button type="button" name="button" class="btn btn-info"><i class="far fa-eye"></i></button>
                             </a>
+                            {% if user.is_authenticated %}
+                            <a href="{% url "plantillas:actualizar" obj.id %}">
+                              <button type="button" class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                              </button>
+                            </a>
+                            <a href="{% url "plantillas:eliminar" obj.id %}">
+                              <button type="button" class="btn btn-danger">
+                                <i class="fa fa-eraser" aria-hidden="true"></i>
+                              </button>
+                            </a>
+                            {%else %}
+                            {%endif%}
                           </div>
                         </figcaption>
                       </figure>
                     </div>
                   </div>
                   {% endfor %}
+                </div>
+                <div class="col-md-12">
+                  <h3 class="text-center">Desarrolladores</h3>
                 </div>
             </div>
         </section>
