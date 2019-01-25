@@ -36,7 +36,7 @@ class AuthDelete(DeleteView):
 
 def home_page(request):
     usuario = User
-    queryset = Plantilla.objects.all()
+    queryset = Plantilla.objects.all().order_by('nombre')
     context = {
         'titulo':"This Engineers Develop",
         'queryset':queryset

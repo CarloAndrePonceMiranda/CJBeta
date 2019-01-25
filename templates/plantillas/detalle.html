@@ -1,6 +1,6 @@
 
 {% extends 'base.html' %}
-{% block head_title %}{{title}}{% endblock %}
+{% block head_title %}| {{object.nombre}}{% endblock %}
 {%load static%}
 {% url 'productos:lista' as lista %}
 {% block content %}
@@ -18,8 +18,10 @@
           <li class="breadcrumb-item"><a href="{{home}}">Home</a></li>
           {% if object.categoria == 'Páginas Web' %}
           <li class="breadcrumb-item"><a href="{{lista_pweb}}">Páginas Web</a></li>
-          {%else%}
+          {%elif object.categoria == 'Sistemas Web' %}
           <li class="breadcrumb-item"><a href="{{lista_sweb}}">Sistemas Web</a></li>
+          {%else%}
+          <li class="breadcrumb-item"><a href="{{lista_sweb}}">Plantillas</a></li>
           {%endif%}
           <li class="breadcrumb-item"><a>{{object.nombre}}</a></li>
         </ol>

@@ -401,6 +401,12 @@ aside:hover ul li:nth-child(4) {
   color: #fc051b!important;
 }
 figcaption{
-  height: 40%!important;
+  height: 45%!important;
 }
 .separacion{padding-top: 50px;}
+.jumbotron{
+  background-color: #29292b!important;
+}
+.text-darko{
+  color:#29292b!important;
+}

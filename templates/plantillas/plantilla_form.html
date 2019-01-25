@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block head_title %}{{title}}{% endblock %}
+{% block head_title %}| Editar Plantilla{% endblock %}
 {%load static%}
 {%load bootstrap4%}
 {% block content %}
@@ -33,7 +33,35 @@
                   <div class="col-md-6">
                     <form enctype="multipart/form-data" method="post">
                       {% csrf_token %}
-                      {% bootstrap_form form %}
+                      <!-- {% bootstrap_form form %} -->
+                      <div class="form-group">
+                        <label for="id_nombre">Nombre</label>
+                        <input type="text" name="nombre" value="{{object.nombre}}" title="" required id="id_nombre" maxlength="120" placeholder="Nombre" class="form-control" />
+                      </div>
+                      <div class="form-group">
+                        <label for="id_marcado">Marcado</label>
+                        <input type="text" name="marcado" value="{{object.marcado}}" title="" id="id_marcado" maxlength="50" placeholder="Marcado" class="form-control" />
+                      </div>
+                      <div class="form-group">
+                        <label for="id_descripcion">Descripcion</label>
+                        <textarea name="descripcion" rows="10" title="" required cols="40" id="id_descripcion" placeholder="Descripcion" class="form-control">{{object.descripcion}}</textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_imagen">Imagen</label>
+                        <div class="row bootstrap4-multi-input"><div class="col-12"><input type="file" name="imagen" id="id_imagen" class="" title="" value="{%if object.imagen%}{{object.imagen.url}}{%else%}{%endif%}"/></div></div>
+                      </div>
+                      <div class="form-group">
+                        <label for="id_categoria">Categoria</label>
+                        <!-- <input type="text" name="categoria" title="" required id="id_categoria" maxlength="120" placeholder="Categoria" class="form-control" value="{{object.descripcion}}"/> -->
+                        <select name="categoria" id="id_categoria" class="form-control">
+                          <option value="{{object.categoria}}">{{object.categoria}}</option>
+                          {%if object.categoria == 'Páginas Web'%}
+                          <option value="Sistemas Web">Sistemas Web</option>
+                          {%else%}
+                          <option value="Páginas Web">Páginas Web</option>
+                          {%endif%}
+                        </select>
+                      </div>
                       <button type="submit" name="submit" class="btn btn-success">Completo</button>
                     </form>
                   </div>
