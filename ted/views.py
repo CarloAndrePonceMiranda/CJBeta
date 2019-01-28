@@ -52,7 +52,7 @@ def contact_page(request):
         form_email =  form.cleaned_data.get("email")
         form_mensaje =  form.cleaned_data.get("mensaje")
         form_nombre =  form.cleaned_data.get("nombre")
-        asunto = 'No Responder CJBETA'
+        asunto = 'No Responder This Engineers Develop'
         email_from = settings.EMAIL_HOST_USER
         email_to = [form_email]
         email_mensaje = "No Responder, hola %s, mensaje: %s Nos pondremos en contacto al correo %s" %(form_nombre,form_mensaje,form_email)

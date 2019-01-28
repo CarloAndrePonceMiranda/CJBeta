@@ -28,8 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost','192.168.1.82','*']
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'cjdevelopcontact@gmail.com'
-EMAIL_HOST_PASSWORD = 'CHINACLES1TENA7575'
+EMAIL_HOST_USER = 'thisenginersdevelop@gmail.com'
+EMAIL_HOST_PASSWORD = 'CHINACLES1TENA75'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

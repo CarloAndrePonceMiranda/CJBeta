@@ -73,8 +73,9 @@
                     <li>
                       <a>
                         {% if obj.cv %}
-                        <a href="{{ obj.cv.url }}" target="_blank">
-                          <img src="https://image.flaticon.com/icons/png/512/504/504676.png">
+                        <a  href="{{ obj.cv.url }}" target="_blank">
+                          <img data-toggle="tooltip" data-html="true" title="C. V." src="https://image.flaticon.com/icons/png/512/504/504676.png">
+                          <!-- <span class="tooltip">C.V</span> -->
                         </a>
                         {% else %}
                         {% endif %}
@@ -111,3 +112,8 @@
     <!-- END PAGE CONTENT -->
 {% endblock %}
 {% include "footer.html" %}
+<script type="text/javascript">
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
