@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block head_title %}| Inicio{% endblock %}
-{%load static%}
+{% load static %}
 {% block content %}
 {% url 'home' as home %}
 <!-- START PAGE CONTENT -->
@@ -21,7 +21,19 @@
         <!-- BEGIN PlACE PAGE CONTENT HERE -->
         <section class="section">
             <div class="container">
-                <div class="row separatedv">
+              <div class="row separatedv">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                  <div class="banner text-center">
+                    <div class="headline container-type">
+                      <!-- <img src="{% static 'img/sinfondo-pc.png'%}" alt="img" class="img"> -->
+                        <pre class="text-success text-justify typing-text"></pre>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+                <div class="row">
                   <div class="col-md-12">
                     <h3 class="text-center">Plantillas</h3>
                   </div>
@@ -70,4 +82,5 @@
     <!-- END CONTAINER FLUID -->
 </div>
 <!-- END PAGE CONTENT -->
-{% endblock %} {% include "footer.html" %}
+{% endblock %}
+{% include "footer.html" %}

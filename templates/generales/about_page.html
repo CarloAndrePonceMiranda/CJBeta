@@ -44,34 +44,56 @@
                   </div>
                   <div class="col-md-2"></div>
                 </div>
-                <div class="row separacion">
-                  <div class="col-md-2"></div>
-                  <div class="col-md-8">
-                    <h3 class="text-center">Lenguajes y Tecnologías</h3>
-                    <p class="text-center">HTML5</p>
-                    <div class="progress">
-                      <div class="progress-bar progress-circle-indeterminate" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                      
                     </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="0" aria-valuemin="55" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    <div class="col-md-2"></div>
                   </div>
-                  <div class="col-md-2"></div>
-                </div>
-            </div>
-        </section>
+              </div>
+          </section>
         <!-- END PLACE PAGE CONTENT HERE -->
     </div>
     <!-- END CONTAINER FLUID -->
 </div>
 <!-- END PAGE CONTENT -->
-{% endblock %} {% include "footer.html" %}
+<!-- <script src="{% static 'js/bars.js' %}" charset="utf-8"></script> -->
+<script type="text/javascript">
+  AnimateCircle("example-animation-container", 0.7);
+
+  function AnimateCircle(container_id, animatePercentage) {
+      var startColor = '#FC5B3F';
+      var endColor = '#6FD57F';
+
+      var element = document.getElementById(container_id);
+      var circle = new ProgressBar.Circle(element, {
+          color: startColor,
+          trailColor: '#eee',
+          trailWidth: 5,
+          duration: 2000,
+          easing: 'bounce',
+          strokeWidth: 5,
+          text: {
+              value: (animatePercentage * 100) + " % complete.",
+              className: 'progressbar__label'
+          },
+          // Set default step function for all animate calls
+          step: function (state, circle) {
+              circle.path.setAttribute('stroke', state.color);
+          }
+      });
+
+      circle.animate(animatePercentage, {
+          from: {
+              color: startColor
+          },
+          to: {
+              color: endColor
+          }
+      });
+  }
+
+</script>
+{% endblock %}
+{% include "footer.html" %}

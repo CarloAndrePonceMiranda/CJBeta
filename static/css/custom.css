@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+.font-terminal{
+  font-family: 'Roboto Mono', monospace !important;
+}
+
 .jumbo-margen{
   margin: 20px!important;
 }
@@ -409,4 +414,63 @@ figcaption{
 }
 .text-darko{
   color:#29292b!important;
+}
+.banner{
+  /* background-color: #29292b!important; */
+  background-image: url(../img/sinfondo-pc.png);
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+  width: 100%!important;
+  height: 430px!important;
+}
+.text-light{
+  color: #ffffff!important;
+}
+.text-js{margin-top: 35px!important;}
+@media only screen and (max-width: 1130px) {
+  .banner{
+    background-color: #000000!important;
+    background-image: url(../img/sinfondo-pc.pg);
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    width: 100%!important;
+    height: 430px!important;
+    border-radius: 29px 29px 29px 29px;
+    -moz-border-radius: 29px 29px 29px 29px;
+    -webkit-border-radius: 29px 29px 29px 29px;
+    border: 20px solid #c8cfd6!important;
+  }
+  .text-js{margin-top: 60px!important;}
+}
+.container-type{
+  font-family: 'Kameron', serif;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Gochi Hand', cursive;
+  color: #33ff66;
+  letter-spacing: 3px;
+  font-weight: bold;
+  width: 100%;
+}
+pre{
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.typing-text::after {
+  content: "|";
+  animation: blink ease 1s infinite;
+
+}
+
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  } 50% {
+    opacity: 1;
+  }
 }
