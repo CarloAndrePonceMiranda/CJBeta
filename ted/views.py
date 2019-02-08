@@ -36,10 +36,14 @@ class AuthDelete(DeleteView):
 
 def home_page(request):
     usuario = User
+    pweb = Plantilla.objects.all().filter(categoria='Páginas Web').order_by('nombre')[:5]
+    sweb = Plantilla.objects.all().filter(categoria='Sistemas Web').order_by('nombre')[:4]
     queryset = Plantilla.objects.all().order_by('nombre')
     context = {
         'titulo':"This Engineers Develop",
-        'queryset':queryset
+        'queryset':queryset,
+        'pweb':pweb,
+        'sweb':sweb
     }
     return render(request, "home_page.html", context)
 

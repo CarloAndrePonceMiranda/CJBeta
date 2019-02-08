@@ -8,7 +8,20 @@
 {% url 'plantillas:lista' as lista %}
 {% url 'lista_pweb' as lista_pweb %}
 {% url 'lista_sweb' as lista_sweb %}
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
 <!-- START PAGE CONTENT -->
+<style media="screen">
+  @media only screen and (max-width: 1130px) {
+    .col-md-8{
+      -ms-flex-order: 1;
+      order: 1;
+    }
+    .col-md-4{
+      -ms-flex-order: -1;
+      order: -1;
+    }
+  }
+</style>
 <div class="content">
   <div class="jumbotron" data-pages="parallax">
     <div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
@@ -23,7 +36,7 @@
           {%else%}
           <li class="breadcrumb-item"><a href="{{lista_sweb}}">Plantillas</a></li>
           {%endif%}
-          <li class="breadcrumb-item"><a>{{object.nombre}}</a></li>
+          <li class="breadcrumb-item active"><a>{{object.nombre}}</a></li>
         </ol>
         <!-- END BREADCRUMB -->
       </div>
@@ -34,14 +47,14 @@
         <!-- BEGIN PlACE PAGE CONTENT HERE -->
         <section class="section">
           <div class="container">
-            <div class="row separatedv">
-              <div class="col-md-8 order-1">
+            <div class="row separatedv d-flex">
+              <div class="col-md-8">
                 {% if object.imagen %}
                     <img src="{{ object.imagen.url }}" width="100%">
                 {% endif %}
                 <sub class="text-muted text-center">Agregado hace {{object.timestamp|timesince}}</sub>
               </div>
-              <div class="col-md-4 order-0">
+              <div class="col-md-4">
                 <!-- <h1 class="text-center">{{ object.nombre }}</h1> -->
                 <h4 class="text-center">Descripción</h4>
                 <p class="text-justify">{{ object.descripcion }}</p><br>
@@ -58,4 +71,3 @@
     </div>
     <!-- END PAGE CONTENT -->
 {% endblock %}
-{% include "footer.html" %}

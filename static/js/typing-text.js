@@ -4,7 +4,7 @@ var text = document.querySelector('.typing-text');
 
 // make a words array
 var words = [
-    "<?php \n  echo 'Bienvenido a T.E.D.';\n?>",
+    "<?php \n  echo 'Bienvenido a T.E.D.';\n  echo 'La victoria favorece\n   a los que se preparan';\n?>",
     "class HolaTED{\n  public static void main(String args[]){\n   System.out.println(\"Bienvenido a T.E.D.\");\n  }\n}",
     "#Hola T.E.D. en Python\nprint \"Bienvenido a T.E.D.\"",
     "<script type=\"text/javascript\">\n  document.write('Bienvenido a T.E.D.');\n<script>",

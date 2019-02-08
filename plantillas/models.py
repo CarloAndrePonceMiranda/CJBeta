@@ -59,7 +59,7 @@ class Plantilla(models.Model):
     imagen      = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     destacado   = models.BooleanField(default=True)
     activo      = models.BooleanField(default=True)
-    categoria   = models.CharField(max_length=120,default='Paginas Web')
+    categoria   = models.CharField(max_length=120,default='Páginas Web')
     timestamp   = models.DateTimeField(auto_now_add=True)
 
     objects = ManejadorPlantilla()

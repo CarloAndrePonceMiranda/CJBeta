@@ -3,84 +3,135 @@
 {% load static %}
 {% block content %}
 {% url 'home' as home %}
+
+<!-- LOADER SECTION -->
+<div id="pageload">
+  <div class="container-load">
+    <img src="{% static 'img/t.e.d.png' %}" alt="">
+  </div>
+  <div class="data">
+    <h1 data-text="Loading...">Loading...</h1>
+    
+  </div>
+</div>
 <!-- START PAGE CONTENT -->
 <div class="content">
   <div class="jumbotron" data-pages="parallax">
     <div class=" container-fluid container-fixed-lg sm-p-l-0 sm-p-r-0">
       <div class="inner">
         <!-- START BREADCRUMB -->
-         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="{{home}}">Home</a></li>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active"><a href="{{home}}">Home</a></li>
         </ol>
         <!-- END BREADCRUMB -->
       </div>
     </div>
   </div>
-    <!-- START CONTAINER FLUID -->
-    <div class="container-fluid container-fixed-lg">
-        <!-- BEGIN PlACE PAGE CONTENT HERE -->
-        <section class="section">
-            <div class="container">
-              <div class="row separatedv">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                  <div class="banner text-center">
-                    <div class="headline container-type">
-                      <!-- <img src="{% static 'img/sinfondo-pc.png'%}" alt="img" class="img"> -->
-                        <pre class="text-success text-justify typing-text"></pre>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-2"></div>
+  <!-- START CONTAINER FLUID -->
+  <div class="container-fluid container-fixed-lg">
+    <!-- BEGIN PlACE PAGE CONTENT HERE -->
+    <section class="section">
+      <div class="container">
+        <div class="row separatedv">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="banner text-center">
+              <div class="headline container-type">
+                <pre class="text-success text-justify typing-text"></pre>
               </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <h3 class="text-center">Plantillas</h3>
-                  </div>
-                  {% for obj in queryset %}
-                  <div class='col-xs-12 col-sm-6 col-md-4 glow'>
-                    <h4 class="text-center">{{obj.nombre}}</h4>
-                    <div class='csi-single-speaker'>
-                      <figure>
-                        <center>
-                          {% if obj.imagen %}<img src='{{ obj.imagen.url }}' alt='speaker' class='glow' height='260'/>{% else %}Sin imagen{% endif %}
-                        </center>
-                        <figcaption>
-                          <div class='speaker-info'>
-                            <p class="text-light">{{obj.descripcion|truncatewords:5}}</p>
-                            <sup class="text-light">{{obj.categoria}}</sup><br>
-                            <a href="{{obj.get_absolute_url}}">
-                              <button type="button" name="button" class="btn btn-info"><i class="far fa-eye"></i></button>
-                            </a>
-                            {% if user.is_authenticated %}
-                            <a href="{% url "plantillas:actualizar" obj.id %}">
-                              <button type="button" class="btn btn-warning">
-                                <i class="fas fa-edit"></i>
-                              </button>
-                            </a>
-                            <a href="{% url "plantillas:eliminar" obj.id %}">
-                              <button type="button" class="btn btn-danger">
-                                <i class="fa fa-eraser" aria-hidden="true"></i>
-                              </button>
-                            </a>
-                            {%else %}
-                            {%endif%}
-                          </div>
-                        </figcaption>
-                      </figure>
-                    </div>
-                  </div>
-                  {% endfor %}
-                </div>
-                <!-- <div class="col-md-12">
-                  <h3 class="text-center">Desarrolladores</h3>
-                </div> -->
             </div>
-        </section>
-        <!-- END PLACE PAGE CONTENT HERE -->
-    </div>
-    <!-- END CONTAINER FLUID -->
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <div class="row separatedv">
+          <div class="col-md-12">
+            <h3 class="text-center">Páginas Web</h3>
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+
+            <div id="slider">
+              <figure>
+                {% for obje in pweb%}
+                <img src="{{obje.imagen.url}}" alt="{{obje.imagen.url}}">
+                {% endfor %}
+              </figure>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <div class="row separatedv">
+          <div class="col-md-12">
+            <h3 class="text-center">Sistemas Web</h3>
+          </div>
+        </div>
+        {% for obje in sweb %}
+        {% if obje.id == 3 %}
+        <div class="row separatedv vara">
+          <div class="col-md-6 abb">
+            <img src="{{obje.imagen.url}}" alt="{{obje.imagen.url}}" class="img-fluid">
+          </div>
+          <div class="col-md-6 arr">
+            <h4 class="text-center">{{obje.nombre}}</h4>
+            <p class="text-center text-muted">Agregado hace {{obje.timestamp|timesince}}</p>
+            <p class="text-center"><a class="text-darko" href="{{obje.get_absolute_url}}">
+                Visitar
+              </a></p>
+          </div>
+        </div>
+        {% elif obje.id == 4 %}
+        <div class="row separatedv varb">
+          <div class="col-md-6 arr">
+            <h4 class="text-center">{{obje.nombre}}</h4>
+            <p class="text-center text-muted">Agregado hace {{obje.timestamp|timesince}}</p>
+            <p class="text-center"><a class="text-darko" href="{{obje.get_absolute_url}}">
+                Visitar
+              </a></p>
+          </div>
+          <div class="col-md-6 abb">
+            <img src="{{obje.imagen.url}}" alt="{{obje.imagen.url}}" class="img-fluid">
+          </div>
+        </div>
+        {% elif obje.id == 10 %}
+        <div class="row separatedv vara">
+          <div class="col-md-6 abb">
+            <img src="{{obje.imagen.url}}" alt="{{obje.imagen.url}}" class="img-fluid">
+          </div>
+          <div class="col-md-6 arr">
+            <h4 class="text-center">{{obje.nombre}}</h4>
+            <p class="text-center text-muted">Agregado hace {{obje.timestamp|timesince}}</p>
+            <p class="text-center"><a class="text-darko" href="{{obje.get_absolute_url}}">
+                Visitar
+              </a></p>
+          </div>
+        </div>
+        {% else %}
+        <div class="row separatedv varb">
+          <div class="col-md-6 arr">
+            <h4 class="text-center">{{obje.nombre}}</h4>
+            <p class="text-center text-muted">Agregado hace {{obje.timestamp|timesince}}</p>
+            <p class="text-center"><a class="text-darko" href="{{obje.get_absolute_url}}">
+                Visitar
+              </a></p>
+          </div>
+          <div class="col-md-6 abb">
+            <img src="{{obje.imagen.url}}" alt="{{obje.imagen.url}}" class="img-fluid">
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+      </div>
+    </section>
+    <!-- END PLACE PAGE CONTENT HERE -->
+  </div>
+  <!-- END CONTAINER FLUID -->
 </div>
+<style media="screen">
+  h4 {
+    padding-top: 20px;
+  }
+</style>
 <!-- END PAGE CONTENT -->
 {% endblock %}
 {% include "footer.html" %}
